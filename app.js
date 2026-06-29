@@ -232,7 +232,6 @@ const tripData = {
         rating: "4.49",
         image: "https://api.cdn.visitjeju.net/photomng/imgpath/202409/24/15f30667-21ed-4722-aaa3-d4a64e02a9a2.webp",
         desc: "야간 조명 산책까지 고려하기 좋은 폭포 코스입니다.",
-        memo: "첫날 저녁 산책"
       }
     ]
   }
