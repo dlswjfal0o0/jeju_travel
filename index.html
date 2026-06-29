@@ -4,178 +4,67 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>여행 정보 정리</title>
+    <meta name="description" content="항공권, E티켓, 렌터카, 추천 장소를 한눈에 보는 읽기 전용 여행 정보 사이트" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">Trip Desk</p>
-        <h1>여행 정보 정리</h1>
-      </div>
-      <div class="trip-meta">
-        <label>
-          여행 이름
-          <input id="tripName" type="text" placeholder="예: 오키나와 가족여행" />
-        </label>
-        <label>
-          기간
-          <input id="tripDates" type="text" placeholder="예: 7/12 - 7/16" />
-        </label>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a class="brand" href="#top" aria-label="여행 정보 정리 첫 화면">
+        <span id="navTitle">여행 정보</span>
+        <small id="navDates">일정</small>
+      </a>
+      <div class="nav-links" id="navLinks"></div>
+    </nav>
+
+    <header id="top" class="hero">
+      <img id="heroImage" class="hero-image" src="" alt="" />
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <div id="heroMeta" class="meta-pills"></div>
+        <p class="eyebrow">Travel Information</p>
+        <h1 id="heroTitle"></h1>
+        <p id="heroDesc" class="hero-desc"></p>
       </div>
     </header>
 
+    <div class="section-tabs" id="sectionTabs" aria-label="섹션 바로가기"></div>
+
     <main>
-      <section class="hero-panel" aria-label="여행 요약">
-        <div class="hero-copy">
-          <p class="section-kicker">예약, 이동, 추천 장소를 한 화면에</p>
-          <h2 id="heroTitle">출발 전 필요한 정보를 정돈하세요.</h2>
-          <p id="heroSubtitle">항공권과 E티켓, 렌터카 셔틀 위치, 식사와 카페 후보를 함께 관리할 수 있습니다.</p>
-        </div>
-        <div class="summary-strip" aria-label="요약 지표">
-          <div>
-            <strong id="flightCount">0</strong>
-            <span>항공 일정</span>
-          </div>
-          <div>
-            <strong id="ticketCount">0</strong>
-            <span>E티켓</span>
-          </div>
-          <div>
-            <strong id="placeCount">0</strong>
-            <span>추천 장소</span>
-          </div>
+      <section id="flights" class="content-section">
+        <p class="eyebrow">Flights & E-tickets</p>
+        <h2>항공권</h2>
+        <p class="section-copy">예약 정보와 E티켓 첨부 파일을 출발 전 바로 확인할 수 있도록 정리했습니다.</p>
+        <div id="flightList" class="stack-list"></div>
+        <div class="notice">
+          <strong>탑승 메모</strong>
+          <span id="flightMemo"></span>
         </div>
       </section>
 
-      <nav class="tabs" aria-label="여행 정보 메뉴">
-        <button class="tab is-active" type="button" data-tab="flights">항공권</button>
-        <button class="tab" type="button" data-tab="car">렌터카</button>
-        <button class="tab" type="button" data-tab="places">추천 장소</button>
-      </nav>
-
-      <section id="flights" class="tab-panel is-active">
-        <div class="panel-heading">
-          <div>
-            <p class="section-kicker">Flight & E-ticket</p>
-            <h2>항공권 예약 정보</h2>
-          </div>
-          <button id="addFlight" class="primary-btn" type="button">항공 일정 추가</button>
-        </div>
-
-        <div id="flightList" class="grid-list"></div>
-
-        <form id="flightForm" class="editor" autocomplete="off">
-          <h3>항공 일정 입력</h3>
-          <div class="form-grid">
-            <label>구간 <input name="route" type="text" placeholder="인천 ICN → 나하 OKA" required /></label>
-            <label>항공사/편명 <input name="flightNo" type="text" placeholder="KE755" /></label>
-            <label>출발 <input name="depart" type="datetime-local" /></label>
-            <label>도착 <input name="arrive" type="datetime-local" /></label>
-            <label>예약번호 <input name="bookingNo" type="text" placeholder="ABC123" /></label>
-            <label>좌석/수하물 <input name="seat" type="text" placeholder="23A, 위탁 1개" /></label>
-          </div>
-          <label class="full-label">메모 <textarea name="note" rows="3" placeholder="체크인 시간, 터미널, 주의사항"></textarea></label>
-          <div class="actions">
-            <button class="primary-btn" type="submit">저장</button>
-            <button class="ghost-btn" type="reset">비우기</button>
-          </div>
-        </form>
-
-        <section class="editor">
-          <h3>E티켓 첨부</h3>
-          <p class="hint">PDF나 이미지 파일을 선택하면 이 화면에서 바로 목록으로 확인할 수 있습니다.</p>
-          <input id="ticketInput" class="file-input" type="file" multiple accept=".pdf,image/*" />
-          <div id="ticketList" class="file-list"></div>
-        </section>
+      <section id="rental" class="content-section">
+        <p class="eyebrow">Rental Car & Shuttle</p>
+        <h2>렌터카</h2>
+        <p class="section-copy">차량 예약 정보와 공항 셔틀 탑승 장소를 함께 확인하세요.</p>
+        <div id="rentalCard"></div>
+        <div id="routeList" class="route-list"></div>
       </section>
 
-      <section id="car" class="tab-panel">
-        <div class="panel-heading">
-          <div>
-            <p class="section-kicker">Rental Car & Shuttle</p>
-            <h2>렌터카 예약 정보</h2>
-          </div>
-          <button id="saveCar" class="primary-btn" type="button">렌터카 정보 저장</button>
-        </div>
-
-        <div class="split-layout">
-          <form id="carForm" class="editor" autocomplete="off">
-            <h3>예약 정보</h3>
-            <div class="form-grid">
-              <label>업체명 <input name="company" type="text" placeholder="렌터카 업체명" /></label>
-              <label>예약번호 <input name="bookingNo" type="text" placeholder="RNT-0000" /></label>
-              <label>차량 <input name="carType" type="text" placeholder="소형 SUV / 5인승" /></label>
-              <label>인수 일시 <input name="pickupTime" type="datetime-local" /></label>
-              <label>반납 일시 <input name="returnTime" type="datetime-local" /></label>
-              <label>연락처 <input name="contact" type="text" placeholder="+81-..." /></label>
-            </div>
-            <label class="full-label">준비물 <textarea name="requirements" rows="3" placeholder="국제운전면허증, 여권, 신용카드"></textarea></label>
-          </form>
-
-          <aside class="map-card">
-            <div class="map-visual" aria-hidden="true">
-              <span class="pin pin-a"></span>
-              <span class="pin pin-b"></span>
-              <span class="route-line"></span>
-            </div>
-            <h3>셔틀 탑승 장소</h3>
-            <label>장소명 <input id="shuttlePlace" type="text" placeholder="공항 국내선 1층 11번 승강장" /></label>
-            <label>안내 메모 <textarea id="shuttleMemo" rows="4" placeholder="도착 후 업체 카운터 확인, 셔틀 10분 간격 운행"></textarea></label>
-          </aside>
-        </div>
-      </section>
-
-      <section id="places" class="tab-panel">
-        <div class="panel-heading">
-          <div>
-            <p class="section-kicker">Food, Cafe, Sightseeing</p>
-            <h2>추천 장소</h2>
-          </div>
-          <button id="addPlace" class="primary-btn" type="button">장소 추가</button>
-        </div>
-
-        <form id="placeForm" class="editor compact-editor" autocomplete="off">
-          <div class="form-grid">
-            <label>분류
-              <select name="category">
-                <option>식사</option>
-                <option>카페</option>
-                <option>명소</option>
-                <option>쇼핑</option>
-                <option>기타</option>
-              </select>
-            </label>
-            <label>장소명 <input name="name" type="text" placeholder="장소 이름" required /></label>
-            <label>지역 <input name="area" type="text" placeholder="예: 국제거리 근처" /></label>
-            <label>우선순위
-              <select name="priority">
-                <option>꼭 가기</option>
-                <option>시간 되면</option>
-                <option>후보</option>
-              </select>
-            </label>
-          </div>
-          <label class="full-label">메모 <textarea name="note" rows="3" placeholder="대표 메뉴, 영업시간, 예약 필요 여부"></textarea></label>
-          <div class="actions">
-            <button class="primary-btn" type="submit">저장</button>
-            <button class="ghost-btn" type="reset">비우기</button>
-          </div>
-        </form>
-
-        <div class="place-toolbar" aria-label="장소 필터">
-          <button class="filter is-active" type="button" data-filter="전체">전체</button>
-          <button class="filter" type="button" data-filter="식사">식사</button>
-          <button class="filter" type="button" data-filter="카페">카페</button>
-          <button class="filter" type="button" data-filter="명소">명소</button>
-          <button class="filter" type="button" data-filter="쇼핑">쇼핑</button>
-        </div>
-        <div id="placeList" class="place-list"></div>
+      <section id="places" class="content-section">
+        <p class="eyebrow">Recommended Places</p>
+        <h2>추천 장소</h2>
+        <p class="section-copy">식사, 카페, 명소 후보를 분류별로 모았습니다.</p>
+        <div class="place-tabs" id="placeTabs" aria-label="추천 장소 분류"></div>
+        <div id="placeList" class="place-grid"></div>
       </section>
     </main>
 
-    <footer>
-      <button id="exportBtn" class="ghost-btn" type="button">JSON 백업</button>
-      <button id="clearBtn" class="danger-btn" type="button">전체 초기화</button>
+    <footer class="site-footer">
+      <div>
+        <p id="footerTitle"></p>
+        <span id="footerMeta"></span>
+      </div>
+      <div id="footerLinks" class="footer-links"></div>
     </footer>
 
     <script src="app.js"></script>

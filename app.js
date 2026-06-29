@@ -1,97 +1,152 @@
-const storageKey = "tripDeskData.v1";
-
-const placeImages = {
-  "식사": "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80')",
-  "카페": "url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80')",
-  "명소": "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80')",
-  "쇼핑": "url('https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=900&q=80')",
-  "기타": "url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80')"
-};
-
-const defaultData = {
-  tripName: "",
-  tripDates: "",
+const tripData = {
+  title: "우리의 제주 여행",
+  accentTitle: "제주 여행",
+  dates: "2025.08.14 - 08.17",
+  duration: "3박 4일",
+  travelers: "2인 여행",
+  destination: "제주도",
+  description: "항공권과 E티켓, 렌터카 예약 정보, 직접 고른 식사·카페·명소를 한곳에 정리했어요.",
+  heroImage: "https://images.unsplash.com/photo-1684042229029-8a899193a8e4?auto=format&fit=crop&w=1920&q=85",
+  sections: [
+    { id: "flights", label: "항공권", icon: "✈" },
+    { id: "rental", label: "렌터카", icon: "🚗" },
+    { id: "places", label: "추천 장소", icon: "📍" }
+  ],
+  flightMemo: "공항 도착은 출발 1시간 30분 전을 권장합니다. E티켓과 신분증을 미리 준비하세요.",
   flights: [
     {
-      route: "인천 ICN → 목적지 공항",
-      flightNo: "편명 입력",
-      depart: "",
-      arrive: "",
-      bookingNo: "",
-      seat: "",
-      note: "체크인 마감 시간과 터미널을 확인하세요."
+      type: "출국",
+      airline: "제주항공 7C101",
+      route: "김포 → 제주",
+      date: "2025.08.14 (목)",
+      depart: "07:30",
+      arrive: "08:35",
+      duration: "1시간 5분",
+      price: "67,400원",
+      status: "예약 완료",
+      seat: "12A",
+      pnr: "K7X2F9",
+      tickets: [
+        { label: "출국 E티켓", href: "tickets/outbound-ticket.pdf" }
+      ]
+    },
+    {
+      type: "귀국",
+      airline: "제주항공 7C108",
+      route: "제주 → 김포",
+      date: "2025.08.17 (일)",
+      depart: "19:55",
+      arrive: "21:00",
+      duration: "1시간 5분",
+      price: "72,100원",
+      status: "예약 완료",
+      seat: "14C",
+      pnr: "K7X2F9",
+      tickets: [
+        { label: "귀국 E티켓", href: "tickets/return-ticket.pdf" }
+      ]
     }
   ],
-  tickets: [],
-  car: {
-    company: "",
-    bookingNo: "",
-    carType: "",
-    pickupTime: "",
-    returnTime: "",
-    contact: "",
-    requirements: "",
-    shuttlePlace: "",
-    shuttleMemo: ""
+  rentalCar: {
+    company: "제주렌터카",
+    model: "현대 투싼 (SUV)",
+    period: "8.14 - 8.17 (3일)",
+    pickupTime: "08.14 09:00",
+    returnTime: "08.17 18:00",
+    pickupLocation: "제주국제공항 1번 게이트",
+    shuttlePlace: "제주국제공항 1층 도착장 왼쪽 렌터카 버스 정류장",
+    shuttleMemo: "업체 셔틀버스 탑승 후 영업소로 이동합니다. 약 10-15분 소요 예정입니다.",
+    price: "165,000원",
+    include: "종합보험 포함 · 무제한 km",
+    reservationNo: "JRC-20250814-0042",
+    status: "예약 완료"
   },
-  places: [
-    {
-      category: "식사",
-      name: "현지 맛집 후보",
-      area: "숙소 근처",
-      priority: "꼭 가기",
-      note: "대표 메뉴와 브레이크 타임을 메모하세요."
-    },
-    {
-      category: "카페",
-      name: "전망 좋은 카페",
-      area: "해변 / 중심가",
-      priority: "시간 되면",
-      note: "이동 동선에 맞으면 들르기."
-    },
-    {
-      category: "명소",
-      name: "대표 관광지",
-      area: "시내",
-      priority: "후보",
-      note: "입장권 예약 여부 확인."
-    }
-  ]
+  routes: [
+    { day: "Day 1 · 8.14", route: "공항 → 성산 일출봉 → 우도 → 숙소 체크인", km: "약 85km" },
+    { day: "Day 2 · 8.15", route: "한라산 성판악 → 점심 → 산방산 뷰 카페 → 카멜리아힐", km: "약 110km" },
+    { day: "Day 3 · 8.16", route: "숙소 체크아웃 → 협재 해수욕장 → 한림공원", km: "약 65km" },
+    { day: "Day 4 · 8.17", route: "카페 → 흑돼지거리 점심 → 공항 반납 → 귀국", km: "약 45km" }
+  ],
+  places: {
+    "식사": [
+      {
+        name: "흑돼지거리 본점",
+        category: "흑돼지구이",
+        address: "제주시 연동",
+        hours: "11:00 - 22:00",
+        price: "1인 25,000원~",
+        rating: "4.9",
+        image: "https://images.unsplash.com/photo-1529543544282-ea669407fca3?auto=format&fit=crop&w=900&q=80",
+        desc: "제주 흑돼지 특유의 풍미를 숯불 위에서 즐길 수 있는 저녁 후보입니다.",
+        memo: "첫날 저녁 예정"
+      },
+      {
+        name: "성게국수 제주점",
+        category: "해물요리",
+        address: "서귀포시 대정읍",
+        hours: "09:00 - 20:00",
+        price: "1인 12,000원",
+        rating: "4.8",
+        image: "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?auto=format&fit=crop&w=900&q=80",
+        desc: "성게와 해산물 국물이 진한 점심 후보입니다.",
+        memo: "둘째 날 점심"
+      }
+    ],
+    "카페": [
+      {
+        name: "산방산 뷰 카페",
+        category: "오션뷰",
+        address: "서귀포시 안덕면",
+        hours: "09:00 - 19:00",
+        price: "음료 8,500원~",
+        rating: "4.8",
+        image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
+        desc: "산방산과 바다가 함께 보이는 오후 휴식 후보입니다.",
+        memo: "둘째 날 오후"
+      },
+      {
+        name: "협재 비치 카페",
+        category: "비치 카페",
+        address: "제주시 한림읍",
+        hours: "09:00 - 20:00",
+        price: "음료 6,500원~",
+        rating: "4.8",
+        image: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+        desc: "협재 해변 앞에서 바다를 보며 쉬기 좋은 카페입니다.",
+        memo: "셋째 날 후보"
+      }
+    ],
+    "명소": [
+      {
+        name: "성산 일출봉",
+        category: "세계자연유산",
+        address: "서귀포시 성산읍",
+        hours: "07:00 - 20:00",
+        price: "입장료 5,000원",
+        rating: "4.9",
+        image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80",
+        desc: "분화구와 동쪽 바다 전망을 함께 볼 수 있는 제주 대표 명소입니다.",
+        memo: "아침 방문 추천"
+      },
+      {
+        name: "천지연 폭포",
+        category: "자연경관",
+        address: "서귀포시 천지동",
+        hours: "09:00 - 22:00",
+        price: "입장료 2,000원",
+        rating: "4.7",
+        image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=900&q=80",
+        desc: "야간 조명 산책까지 고려하기 좋은 폭포 코스입니다.",
+        memo: "첫날 저녁 산책"
+      }
+    ]
+  }
 };
 
-let data = loadData();
-let activeFilter = "전체";
+let activeSection = "flights";
+let activePlace = "식사";
 
 const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => Array.from(document.querySelectorAll(selector));
-
-function loadData() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(storageKey));
-    return {
-      ...structuredClone(defaultData),
-      ...saved,
-      car: { ...defaultData.car, ...(saved?.car || {}) }
-    };
-  } catch {
-    return structuredClone(defaultData);
-  }
-}
-
-function saveData() {
-  localStorage.setItem(storageKey, JSON.stringify(data));
-  render();
-}
-
-function formatDate(value) {
-  if (!value) return "일시 미정";
-  return new Intl.DateTimeFormat("ko-KR", {
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(new Date(value));
-}
 
 function escapeHtml(value = "") {
   return String(value).replace(/[&<>"']/g, (char) => ({
@@ -103,194 +158,200 @@ function escapeHtml(value = "") {
   })[char]);
 }
 
-function render() {
-  $("#tripName").value = data.tripName;
-  $("#tripDates").value = data.tripDates;
-  $("#heroTitle").textContent = data.tripName ? `${data.tripName} 준비 노트` : "출발 전 필요한 정보를 정돈하세요.";
-  $("#heroSubtitle").textContent = data.tripDates ? `${data.tripDates} 일정의 핵심 정보를 한곳에 모았습니다.` : "항공권과 E티켓, 렌터카 셔틀 위치, 식사와 카페 후보를 함께 관리할 수 있습니다.";
-  $("#flightCount").textContent = data.flights.length;
-  $("#ticketCount").textContent = data.tickets.length;
-  $("#placeCount").textContent = data.places.length;
-  renderFlights();
-  renderTickets();
-  renderCar();
-  renderPlaces();
+function renderShell() {
+  $("#navTitle").textContent = tripData.accentTitle;
+  $("#navDates").textContent = `${tripData.dates} · ${tripData.duration}`;
+  $("#heroImage").src = tripData.heroImage;
+  $("#heroImage").alt = tripData.destination;
+  $("#heroTitle").innerHTML = `우리의<br><em>${escapeHtml(tripData.accentTitle)}</em>`;
+  $("#heroDesc").textContent = tripData.description;
+  $("#footerTitle").innerHTML = `${escapeHtml(tripData.accentTitle)} <span style="color: var(--accent)">2025</span>`;
+  $("#footerMeta").textContent = `${tripData.dates} · ${tripData.duration} · ${tripData.travelers}`;
+
+  $("#heroMeta").innerHTML = [
+    `📅 ${tripData.dates} · ${tripData.duration}`,
+    `👥 ${tripData.travelers}`,
+    `📍 ${tripData.destination}`
+  ].map((item) => `<span class="meta-pill">${escapeHtml(item)}</span>`).join("");
+
+  const links = tripData.sections.map((section) => `
+    <a class="nav-link ${section.id === activeSection ? "is-active" : ""}" href="#${section.id}" data-section="${section.id}">
+      ${section.label}
+    </a>
+  `).join("");
+  $("#navLinks").innerHTML = links;
+  $("#footerLinks").innerHTML = links.replaceAll("nav-link", "footer-link");
+
+  $("#sectionTabs").innerHTML = tripData.sections.map((section) => `
+    <button class="tab-button ${section.id === activeSection ? "is-active" : ""}" type="button" data-section="${section.id}">
+      <span>${section.icon}</span>${section.label}
+    </button>
+  `).join("");
+}
+
+function detail(label, value) {
+  return `
+    <div class="detail">
+      <span class="detail-label">${escapeHtml(label)}</span>
+      <span class="detail-value">${escapeHtml(value || "-")}</span>
+    </div>
+  `;
 }
 
 function renderFlights() {
-  $("#flightList").innerHTML = data.flights.map((flight, index) => `
-    <article class="info-card">
-      <header>
-        <div>
-          <h3>${escapeHtml(flight.route)}</h3>
-          <p class="meta-line">${escapeHtml(flight.flightNo || "편명 미정")}</p>
+  $("#flightMemo").textContent = tripData.flightMemo;
+  $("#flightList").innerHTML = tripData.flights.map((flight) => {
+    const [from, to] = flight.route.split(" → ");
+    const isReturn = flight.type.includes("귀국");
+    const tickets = flight.tickets.map((ticket) => `
+      <a class="ticket-link" href="${escapeHtml(ticket.href)}" target="_blank" rel="noreferrer">
+        ${escapeHtml(ticket.label)}
+      </a>
+    `).join("");
+
+    return `
+      <article class="flight-card ${isReturn ? "return" : ""}">
+        <div class="flight-bar">
+          <span>${isReturn ? "▼" : "▲"} ${escapeHtml(flight.type)}</span>
+          <span class="status-chip">${escapeHtml(flight.status)}</span>
         </div>
-        <button class="delete-btn" type="button" data-delete-flight="${index}" aria-label="항공 일정 삭제">×</button>
-      </header>
-      <p><strong>출발</strong> ${formatDate(flight.depart)}</p>
-      <p><strong>도착</strong> ${formatDate(flight.arrive)}</p>
-      <p><strong>예약번호</strong> ${escapeHtml(flight.bookingNo || "-")}</p>
-      <p><strong>좌석/수하물</strong> ${escapeHtml(flight.seat || "-")}</p>
-      <p class="meta-line">${escapeHtml(flight.note || "")}</p>
+        <div class="flight-body">
+          <div>
+            <div class="route-visual">
+              <div class="airport-time">
+                <strong>${escapeHtml(flight.depart)}</strong>
+                <span>${escapeHtml(from)}</span>
+              </div>
+              <div class="route-line">
+                <span class="duration">${escapeHtml(flight.duration)}</span>
+                <span class="plane-line">✈</span>
+                <span class="duration">${escapeHtml(flight.date)}</span>
+              </div>
+              <div class="airport-time">
+                <strong>${escapeHtml(flight.arrive)}</strong>
+                <span>${escapeHtml(to)}</span>
+              </div>
+            </div>
+            <div class="ticket-row">
+              <span class="soft-chip">E티켓</span>
+              ${tickets || '<span class="ticket-link is-disabled">첨부 예정</span>'}
+            </div>
+          </div>
+          <div class="detail-grid">
+            ${detail("항공편", flight.airline)}
+            ${detail("좌석", flight.seat)}
+            ${detail("예약번호", flight.pnr)}
+            ${detail("요금", flight.price)}
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderRental() {
+  const car = tripData.rentalCar;
+  $("#rentalCard").innerHTML = `
+    <article class="rental-card">
+      <div class="rental-bar">
+        <span>${escapeHtml(car.company)}</span>
+        <span class="status-chip">${escapeHtml(car.status)}</span>
+      </div>
+      <div class="rental-body">
+        <div class="info-block">
+          <p class="block-title">예약 정보</p>
+          ${detail("차량", car.model)}
+          ${detail("기간", car.period)}
+          ${detail("픽업", `${car.pickupTime} · ${car.pickupLocation}`)}
+          ${detail("반납", car.returnTime)}
+          ${detail("포함", car.include)}
+          ${detail("예약번호", car.reservationNo)}
+        </div>
+        <div class="info-block">
+          <div class="shuttle-box">
+            <p class="block-title">셔틀 탑승 장소</p>
+            <h3>${escapeHtml(car.shuttlePlace)}</h3>
+            <p>${escapeHtml(car.shuttleMemo)}</p>
+          </div>
+          <div class="price-box">
+            <p>총 요금</p>
+            <strong>${escapeHtml(car.price)}</strong>
+            <p>${escapeHtml(car.include)}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  `;
+
+  $("#routeList").innerHTML = tripData.routes.map((route) => `
+    <article class="route-card">
+      <b>${escapeHtml(route.day)}</b>
+      <p>${escapeHtml(route.route)}</p>
+      <small>${escapeHtml(route.km)}</small>
     </article>
   `).join("");
-
-  $$("[data-delete-flight]").forEach((button) => {
-    button.addEventListener("click", () => {
-      data.flights.splice(Number(button.dataset.deleteFlight), 1);
-      saveData();
-    });
-  });
-}
-
-function renderTickets() {
-  $("#ticketList").innerHTML = data.tickets.length ? data.tickets.map((ticket, index) => `
-    <div class="file-row">
-      <span>${escapeHtml(ticket.name)}</span>
-      <a href="${ticket.url}" target="_blank" rel="noreferrer">열기</a>
-      <button class="delete-btn" type="button" data-delete-ticket="${index}" aria-label="E티켓 삭제">×</button>
-    </div>
-  `).join("") : `<p class="hint">아직 첨부한 E티켓이 없습니다.</p>`;
-
-  $$("[data-delete-ticket]").forEach((button) => {
-    button.addEventListener("click", () => {
-      data.tickets.splice(Number(button.dataset.deleteTicket), 1);
-      saveData();
-    });
-  });
-}
-
-function renderCar() {
-  Object.entries(data.car).forEach(([key, value]) => {
-    const field = $(`#carForm [name="${key}"]`);
-    if (field) field.value = value || "";
-  });
-  $("#shuttlePlace").value = data.car.shuttlePlace || "";
-  $("#shuttleMemo").value = data.car.shuttleMemo || "";
 }
 
 function renderPlaces() {
-  const places = activeFilter === "전체" ? data.places : data.places.filter((place) => place.category === activeFilter);
-  $("#placeList").innerHTML = places.map((place) => {
-    const index = data.places.indexOf(place);
-    return `
-      <article class="place-card" style="--place-image: ${placeImages[place.category] || placeImages["기타"]}">
-        <header>
-          <div>
-            <span class="badge">${escapeHtml(place.category)} · ${escapeHtml(place.priority)}</span>
-            <h3>${escapeHtml(place.name)}</h3>
-            <p class="meta-line">${escapeHtml(place.area || "지역 미정")}</p>
-          </div>
-          <button class="delete-btn" type="button" data-delete-place="${index}" aria-label="장소 삭제">×</button>
-        </header>
-        <p>${escapeHtml(place.note || "메모를 추가하세요.")}</p>
-      </article>
-    `;
-  }).join("") || `<p class="hint">이 분류에 등록된 장소가 없습니다.</p>`;
+  $("#placeTabs").innerHTML = Object.keys(tripData.places).map((name) => `
+    <button class="place-tab ${name === activePlace ? "is-active" : ""}" type="button" data-place="${escapeHtml(name)}">
+      ${name === "식사" ? "🍽" : name === "카페" ? "☕" : "📷"} ${escapeHtml(name)}
+    </button>
+  `).join("");
 
-  $$("[data-delete-place]").forEach((button) => {
-    button.addEventListener("click", () => {
-      data.places.splice(Number(button.dataset.deletePlace), 1);
-      saveData();
-    });
-  });
+  $("#placeList").innerHTML = tripData.places[activePlace].map((place) => `
+    <article class="place-card">
+      <div class="place-image-wrap">
+        <img src="${escapeHtml(place.image)}" alt="${escapeHtml(place.name)}" loading="lazy" />
+        <div class="place-badges">
+          <span>${escapeHtml(place.category)}</span>
+          <span>★ ${escapeHtml(place.rating)}</span>
+        </div>
+      </div>
+      <div class="place-body">
+        <h3>${escapeHtml(place.name)}</h3>
+        <p>${escapeHtml(place.desc)}</p>
+        ${place.memo ? `<div class="memo-box">📌 ${escapeHtml(place.memo)}</div>` : ""}
+        <div class="place-meta">
+          <span>📍 ${escapeHtml(place.address)}</span>
+          <span>⏱ ${escapeHtml(place.hours)}</span>
+          <strong>${escapeHtml(place.price)}</strong>
+        </div>
+      </div>
+    </article>
+  `).join("");
 }
 
-function formToObject(form) {
-  return Object.fromEntries(new FormData(form).entries());
+function bindEvents() {
+  document.addEventListener("click", (event) => {
+    const sectionButton = event.target.closest("[data-section]");
+    if (sectionButton) {
+      activeSection = sectionButton.dataset.section;
+      renderShell();
+      return;
+    }
+
+    const placeButton = event.target.closest("[data-place]");
+    if (placeButton) {
+      activePlace = placeButton.dataset.place;
+      renderPlaces();
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible || visible.target.id === activeSection) return;
+    activeSection = visible.target.id;
+    renderShell();
+  }, { rootMargin: "-42% 0px -45% 0px", threshold: [0.15, 0.35, 0.55] });
+
+  tripData.sections.forEach((section) => observer.observe(document.getElementById(section.id)));
 }
 
-$$(".tab").forEach((tab) => {
-  tab.addEventListener("click", () => {
-    $$(".tab").forEach((button) => button.classList.remove("is-active"));
-    $$(".tab-panel").forEach((panel) => panel.classList.remove("is-active"));
-    tab.classList.add("is-active");
-    $(`#${tab.dataset.tab}`).classList.add("is-active");
-  });
-});
-
-$$(".filter").forEach((filter) => {
-  filter.addEventListener("click", () => {
-    activeFilter = filter.dataset.filter;
-    $$(".filter").forEach((button) => button.classList.remove("is-active"));
-    filter.classList.add("is-active");
-    renderPlaces();
-  });
-});
-
-$("#tripName").addEventListener("input", (event) => {
-  data.tripName = event.target.value;
-  saveData();
-});
-
-$("#tripDates").addEventListener("input", (event) => {
-  data.tripDates = event.target.value;
-  saveData();
-});
-
-$("#flightForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  data.flights.push(formToObject(event.currentTarget));
-  event.currentTarget.reset();
-  saveData();
-});
-
-$("#placeForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  data.places.push(formToObject(event.currentTarget));
-  event.currentTarget.reset();
-  saveData();
-});
-
-$("#ticketInput").addEventListener("change", (event) => {
-  const files = Array.from(event.target.files || []);
-  files.forEach((file) => {
-    const reader = new FileReader();
-    reader.addEventListener("load", () => {
-      data.tickets.push({
-        name: file.name,
-        size: file.size,
-        url: reader.result
-      });
-      saveData();
-    });
-    reader.readAsDataURL(file);
-  });
-  event.target.value = "";
-});
-
-$("#addFlight").addEventListener("click", () => {
-  $("#flightForm input[name='route']").focus();
-});
-
-$("#addPlace").addEventListener("click", () => {
-  $("#placeForm input[name='name']").focus();
-});
-
-$("#saveCar").addEventListener("click", () => {
-  data.car = {
-    ...formToObject($("#carForm")),
-    shuttlePlace: $("#shuttlePlace").value,
-    shuttleMemo: $("#shuttleMemo").value
-  };
-  saveData();
-});
-
-$("#exportBtn").addEventListener("click", () => {
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = `${data.tripName || "trip-desk"}.json`;
-  link.click();
-  URL.revokeObjectURL(url);
-});
-
-$("#clearBtn").addEventListener("click", () => {
-  if (!confirm("저장된 여행 정보를 모두 초기화할까요?")) return;
-  data = structuredClone(defaultData);
-  localStorage.removeItem(storageKey);
-  render();
-});
-
-render();
+renderShell();
+renderFlights();
+renderRental();
+renderPlaces();
+bindEvents();
