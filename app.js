@@ -387,17 +387,18 @@ function renderRental() {
             <h3>${escapeHtml(car.shuttlePlace)}</h3>
             <p>${escapeHtml(car.shuttleMemo)}</p>
           </div>
+          ${car.price ? `
           <div class="price-box">
             <p>총 요금</p>
             <strong>${escapeHtml(car.price)}</strong>
             <p>${escapeHtml(car.include)}</p>
-          </div>
+          </div>` : ""}
         </div>
       </div>
     </article>
   `;
 
-  $("#routeList").innerHTML = tripData.routes.map((route) => `
+  $("#routeList").innerHTML = (tripData.routes ?? []).map((route) => `
     <article class="route-card">
       <b>${escapeHtml(route.day)}</b>
       <p>${escapeHtml(route.route)}</p>
