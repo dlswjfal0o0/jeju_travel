@@ -66,14 +66,15 @@ const tripData = {
         //   { name: "한남점", address: "서울시 용산구 ...", lat: 37.5383, lng: 126.9945 },
         // ]
         branches: [
-          { name: "제주점", address: "제주시 구좌읍 동복로 83 1층" },
-          { name: "애월점", address: "제주시 애월읍 애월북서길 56-4" },
+          { name: "제주점", address: "제주시 구좌읍 동복로 83 1층", lat: 33.5265, lng: 126.9032 },
+          { name: "애월점", address: "제주시 애월읍 애월북서길 56-4", lat: 33.4634, lng: 126.3206 },
         ]
       },
       {
         name: "우동카덴",
         category: "일식",
         address: "제주시 조천읍 교래3길 23",
+        lat: 33.4416, lng: 126.6621,
         hours: "10:00 - 18:00 (화•수 정기휴무 / 17:00 라스트오더)",
         rating: "3.9",
         image: "https://d12zq4w4guyljn.cloudfront.net/750_750_20260506091525_photo1_d8d8dcf15d07.webp",
@@ -83,6 +84,7 @@ const tripData = {
         name: "블루크랩 함덕점",
         category: "크랩",
         address: "제주시 조천읍 함덕로 40 3층 301호",
+        lat: 33.5372, lng: 126.6697,
         hours: "12:00 - 21:30 (화 정기휴무 / 15:00 - 16:30 브레이크타임 / 20:15 라스트오더)",
         rating: "4.4",
         image: "https://mblogthumb-phinf.pstatic.net/MjAyNjAxMDRfMTI5/MDAxNzY3NTMwMzc3ODE3.1kcCtCkLxS8q-qyvl2iu9K0jn6pT8BV4iI_dA3dH7mkg.T6kT4HGe7Qf6EATjeQtWUdRIS0syYQmJY-VEG8qwnNEg.JPEG/SE-692887e3-dbca-40cd-bfd4-36137266deb4.jpg?type=w800",
@@ -92,6 +94,7 @@ const tripData = {
         name: "청초수물회 제주점",
         category: "물회",
         address: "제주시 애월읍 일주서로 6113",
+        lat: 33.4670, lng: 126.3578,
         hours: "10:30 - 20:30 (19:50 라스트오더)",
         rating: "4.6",
         image: "https://ugc-images.catchtable.co.kr/shop/manager/images/72b5a269cdeb4c59b396e0db739f4695?resizeType=details500",
@@ -101,6 +104,7 @@ const tripData = {
         name: "고찌가게",
         category: "동네맛집",
         address: "제주시 가령로4길 27",
+        lat: 33.4951, lng: 126.5163,
         hours: "11:00 - 15:00 (14:55 라스트오더)",
         rating: "3.5",
         image: "https://d12zq4w4guyljn.cloudfront.net/750_750_20250903055800394_photo_7467740bc044.webp",
@@ -110,6 +114,7 @@ const tripData = {
         name: "함쉐프키친짬뽕 서귀포 본점",
         category: "짬뽕",
         address: "서귀포시 이어도로 217-4 함쉐프키친",
+        lat: 33.2538, lng: 126.5014,
         hours: "11:00 - 21:00 (15:00 - 17:00 브레이크타임 / 20:00 라스트오더)",
         rating: "4.6",
         image: "https://ugc-images.catchtable.co.kr/shop/manager/images/7b9b1181723e4aada8d6a8948a122eed?resizeType=details500",
@@ -119,6 +124,7 @@ const tripData = {
         name: "소렉",
         category: "양식",
         address: "제주시 은남2길 41 1층",
+        lat: 33.5022, lng: 126.5131,
         hours: "13:00 - 23:00 (화 정기휴무 / 17:00 - 18:00 브레이크타임 / 22:00 라스트오더)",
         rating: "4.6",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFDc9JVlpJv5Px8VvswY-i8BZHzn7ZJbR1eQ&s",
@@ -128,6 +134,7 @@ const tripData = {
         name: "연돈",
         category: "돈까스",
         address: "서귀포시 색달로 10",
+        lat: 33.2520, lng: 126.4128,
         hours: "12:00 - 21:00 (19:15 라스트오더)",
         rating: "4.2",
         image: "https://ugc-images.catchtable.co.kr/catchtable/shopinfo/s-XvP-6X2H7zfLB3n7gydQw/m/270ef344e48345adbf99b33ef74b715e?resizeType=details500",
@@ -137,6 +144,7 @@ const tripData = {
         name: "돈해상 제주한림협재흑돼지",
         category: "흑돼지",
         address: "제주시 한림읍 귀덕11길 39 1층",
+        lat: 33.3802, lng: 126.2614,
         hours: "11:00 - 21:00 (14:00 - 15:00 브레이크타임 / 20:30 라스트오더)",
         rating: "4.5",
         image: "https://ugc-images.catchtable.co.kr/shop/manager/images/08e8a13ce72c4fe89d9512c0052e2783?resizeType=details500",
@@ -146,6 +154,7 @@ const tripData = {
         name: "세이모키친",
         category: "양식",
         address: "서귀포시 김정문화로 41번길 3",
+        lat: 33.2525, lng: 126.5687,
         hours: "11:30 - 15:30 (월 정기휴무 / 14:30 라스트오더)",
         rating: "4.88",
         image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250226_197%2F17405720718162FBsl_JPEG%2FIMG_2110.jpeg",
@@ -157,6 +166,7 @@ const tripData = {
         name: "해지개",
         category: "오션뷰",
         address: "제주시 애월읍 애월북서길 52 1~2층",
+        lat: 33.4635, lng: 126.3203,
         hours: "09:00 - 21:00 (20:20 라스트오더)",
         rating: "4.8",
         image: "https://blog.kakaocdn.net/dna/btnbHs/btsn0DAIoZB/AAAAAAAAAAAAAAAAAAAAAIMQP92KJDaP7w8ZbBhw6MM6-uVpB2iaMoIEf82MCBYN/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1782831599&allow_ip=&allow_referer=&signature=VE3Fl9H0We6dERzRegUuV5ZmDnI%3D",
@@ -166,6 +176,7 @@ const tripData = {
         name: "수퍼플라워",
         category: "꽃밭 속 오션뷰",
         address: "제주시 구좌읍 동복로 85 지하1층",
+        lat: 33.5266, lng: 126.9036,
         hours: "09:00 - 19:00 (18:30 라스트오더)",
         rating: "3.8",
         image: "https://api.cdn.visitjeju.net/photomng/imgpath/202510/24/d19a817a-3eaf-4eaf-9850-7216cf5e8398.webp",
@@ -180,23 +191,24 @@ const tripData = {
         image: "https://mblogthumb-phinf.pstatic.net/MjAyMTAzMjZfODgg/MDAxNjE2NzI2OTI3MDYy.sicbaZbeyLMte8EvA-iTYe-FWcNpvpWg8bZmoNf1ZWIg.KlujjGRCwFgSE2p-aufJuU1zdFgGWmiRRfwS_ZUEWxYg.JPEG.28ssan/SE-489edfa3-aa78-4334-8c17-4eadd5bd5790.jpg?type=w800",
         desc: "고메버터 소금빵, 우도 땅콩빵, 라봉슈 등 다양한 베이커리와 말차라떼, 청귤피치에이드 등 음료 메뉴가 인기입니다.",
         branches: [
-          { name: "함덕점", address: "제주시 조천읍 조함해안로 519-10" },
-          { name: "김녕점", address: "제주시 구좌읍 해맞이해안로 140" },
-          { name: "제주도립미술관점", address: "제주시 1100로 2894-78" },
-          { name: "로스터스", address: "제주시 연삼로 316" },
+          { name: "함덕점", address: "제주시 조천읍 조함해안로 519-10", lat: 33.5378, lng: 126.6660 },
+          { name: "김녕점", address: "제주시 구좌읍 해맞이해안로 140", lat: 33.5522, lng: 126.7576 },
+          { name: "제주도립미술관점", address: "제주시 1100로 2894-78", lat: 33.4274, lng: 126.4829 },
+          { name: "로스터스", address: "제주시 연삼로 316", lat: 33.4982, lng: 126.5278 },
         ]
       },
       {
         name: "망고레이",
         category: "망고",
         address: "제주시 애월읍 일주서로 7021 1층",
+        lat: 33.4700, lng: 126.3697,
         hours: "10:00 - 19:30",
         rating: "4.3",
         image: "https://mblogthumb-phinf.pstatic.net/MjAyNDA0MjBfMjE0/MDAxNzEzNjE5OTAyODgw.lqCZhyYfvCCkaTmX04erNGX0UcjcR7ArvX4wsANRC58g.tjrd3VhJo0hOABS7hnO9gUFYUFo5WBG5DSnSkP5kU94g.JPEG/SE-e3871769-149c-47b1-9582-4d45c417df86.jpg?type=w800",
         desc: "대한민국 최초의 필리핀 디저트 카페이자, 필리핀 카라바오생망고를 직접 공수하여 필리핀 현지의 맛을 느낄 수 있습니다.",
         branches: [
-          { name: "애월직영점", address: "제주시 조천읍 조함해안로 519-10" },
-          { name: "함덕본점", address: "제주시 구좌읍 해맞이해안로 140" },
+          { name: "애월직영점", address: "제주시 애월읍 일주서로 7021 1층", lat: 33.4700, lng: 126.3697 },
+          { name: "함덕본점", address: "제주시 조천읍 함덕로 56", lat: 33.5368, lng: 126.6688 },
         ]
       }
     ],
@@ -205,6 +217,7 @@ const tripData = {
         name: "워터월드 제주",
         category: "미디어아트",
         address: "서귀포시 월드컵로 33 제주월드컵경기장",
+        lat: 33.2517, lng: 126.5181,
         hours: "07:00 - 20:00",
         price: "입장료 5,000원",
         rating: "4.9",
@@ -216,6 +229,7 @@ const tripData = {
         name: "천지연 폭포",
         category: "자연경관",
         address: "서귀포시 천지동 667-7",
+        lat: 33.2463, lng: 126.5546,
         hours: "09:00 - 22:00",
         price: "입장료 2,000원",
         rating: "4.7",
@@ -278,9 +292,9 @@ function renderShell() {
   $("#navDates").textContent = `${tripData.dates} · ${tripData.duration}`;
   $("#heroImage").src = tripData.heroImage;
   $("#heroImage").alt = tripData.destination;
-  $("#heroTitle").innerHTML = `우리의<br><em>${escapeHtml(tripData.accentTitle)}</em>`;
+  $("#heroTitle").innerHTML = `<em>${escapeHtml(tripData.accentTitle)}</em>`;
   $("#heroDesc").textContent = tripData.description;
-  $("#footerTitle").innerHTML = `${escapeHtml(tripData.accentTitle)} <span style="color: var(--accent)">2025</span>`;
+  $("#footerTitle").innerHTML = `${escapeHtml(tripData.accentTitle)} <span style="color: var(--accent)">2026</span>`;
   $("#footerMeta").textContent = `${tripData.dates} · ${tripData.duration} · ${tripData.travelers}`;
 
   $("#heroMeta").innerHTML = [
@@ -355,7 +369,6 @@ function renderFlights() {
             ${detail("항공편", flight.airline)}
             ${detail("좌석", flight.seat)}
             ${detail("예약번호", flight.pnr)}
-            ${detail("요금", flight.price)}
           </div>
         </div>
       </article>
@@ -379,7 +392,6 @@ function renderRental() {
           ${detail("픽업", `${car.pickupTime} · ${car.pickupLocation}`)}
           ${detail("반납", car.returnTime)}
           ${detail("포함", car.include)}
-          ${detail("예약번호", car.reservationNo)}
         </div>
         <div class="info-block">
           <div class="shuttle-box">
@@ -487,14 +499,19 @@ async function addAllMarkers() {
     const icon = makeMarkerIcon(emoji, color);
 
     places.forEach((place) => {
-      // branches가 있으면 각 지점 주소로, 없으면 장소 자체 주소로 geocoding
+      // branches가 있으면 각 지점으로, 없으면 장소 자체 정보로 (lat/lng 포함)
       const points = place.branches?.length
         ? place.branches
-        : [{ name: null, address: place.address }];
+        : [{ name: null, address: place.address, lat: place.lat, lng: place.lng }];
 
       points.forEach((pt) => {
+        // lat/lng가 직접 있으면 API 호출 없이 바로 사용, 없으면 Kakao API 시도
+        const coordsPromise = (pt.lat && pt.lng)
+          ? Promise.resolve({ lat: pt.lat, lng: pt.lng })
+          : geocodeAddress(pt.address);
+
         tasks.push(
-          geocodeAddress(pt.address).then((coords) => {
+          coordsPromise.then((coords) => {
             if (!coords) return; // geocoding 실패 시 마커 생략
             const titleLine = pt.name
               ? `<strong>${escapeHtml(place.name)}</strong><span class="popup-branch">${escapeHtml(pt.name)}</span>`
