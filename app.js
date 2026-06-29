@@ -289,11 +289,6 @@ function renderShell() {
     `📍 ${tripData.destination}`
   ].map((item) => `<span class="meta-pill">${escapeHtml(item)}</span>`).join("");
 
-  // 읽기 전용 배지: 편집 모드가 아닐 때 nav에 표시
-  const readonlyBadge = IS_EDIT_MODE
-    ? ""
-    : `<span class="readonly-badge">읽기 전용</span>`;
-
   const links = tripData.sections.map((section) => `
     <button class="nav-link ${section.id === activeSection ? "is-active" : ""}" type="button" data-section="${section.id}">
       ${section.label}
@@ -355,7 +350,6 @@ function renderFlights() {
             ${detail("항공편", flight.airline)}
             ${detail("좌석", flight.seat)}
             ${detail("예약번호", flight.pnr)}
-            ${detail("요금", flight.price)}
           </div>
         </div>
       </article>
@@ -379,7 +373,6 @@ function renderRental() {
           ${detail("픽업", `${car.pickupTime} · ${car.pickupLocation}`)}
           ${detail("반납", car.returnTime)}
           ${detail("포함", car.include)}
-          ${detail("예약번호", car.reservationNo)}
         </div>
         <div class="info-block">
           <div class="shuttle-box">
@@ -389,8 +382,6 @@ function renderRental() {
           </div>
           ${car.price ? `
           <div class="price-box">
-            <p>총 요금</p>
-            <strong>${escapeHtml(car.price)}</strong>
             <p>${escapeHtml(car.include)}</p>
           </div>` : ""}
         </div>
