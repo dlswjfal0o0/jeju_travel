@@ -108,6 +108,21 @@ a {
   transition: background 180ms ease, color 180ms ease;
 }
 
+/* 읽기 전용 배지 */
+.readonly-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 5px 11px;
+  pointer-events: none;
+  user-select: none;
+}
+
 .nav-link.is-active,
 .place-tab.is-active {
   background: var(--accent);

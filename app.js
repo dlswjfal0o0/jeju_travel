@@ -143,6 +143,13 @@ const tripData = {
   }
 };
 
+// ─── 편집 모드 제어 ──────────────────────────────────────────────────────────
+// 일반 링크로 접근하면 항상 읽기 전용.
+// ?edit=<비밀번호> 파라미터가 있을 때만 편집 모드가 활성화됩니다.
+const EDIT_SECRET = "jeju2025"; // 원하는 비밀번호로 변경하세요
+const _params = new URLSearchParams(window.location.search);
+const IS_EDIT_MODE = _params.get("edit") === EDIT_SECRET;
+
 let activeSection = "flights";
 let activePlace = "식사";
 
@@ -156,6 +163,26 @@ function escapeHtml(value = "") {
     '"': "&quot;",
     "'": "&#039;"
   })[char]);
+}
+
+// ─── 섹션 전환 ───────────────────────────────────────────────────────────────
+// 탭 클릭 시 해당 섹션만 표시하고 나머지를 숨깁니다.
+// IntersectionObserver 없이 동작하므로 스크롤 중 다른 탭이 활성화되는 오류가 없습니다.
+function showSection(sectionId) {
+  activeSection = sectionId;
+  tripData.sections.forEach(({ id }) => {
+    const el = document.getElementById(id);
+    if (el) el.hidden = (id !== sectionId);
+  });
+  // 섹션 교체 시 페이지 상단(탭바)으로 이동
+  document.getElementById("sectionTabs")?.scrollIntoView({ block: "nearest" });
+  updateTabState();
+}
+
+function updateTabState() {
+  document.querySelectorAll("[data-section]").forEach((el) => {
+    el.classList.toggle("is-active", el.dataset.section === activeSection);
+  });
 }
 
 function renderShell() {
@@ -174,13 +201,22 @@ function renderShell() {
     `📍 ${tripData.destination}`
   ].map((item) => `<span class="meta-pill">${escapeHtml(item)}</span>`).join("");
 
+  // 읽기 전용 배지: 편집 모드가 아닐 때 nav에 표시
+  const readonlyBadge = IS_EDIT_MODE
+    ? ""
+    : `<span class="readonly-badge">읽기 전용</span>`;
+
   const links = tripData.sections.map((section) => `
-    <a class="nav-link ${section.id === activeSection ? "is-active" : ""}" href="#${section.id}" data-section="${section.id}">
+    <button class="nav-link ${section.id === activeSection ? "is-active" : ""}" type="button" data-section="${section.id}">
       ${section.label}
-    </a>
+    </button>
   `).join("");
-  $("#navLinks").innerHTML = links;
-  $("#footerLinks").innerHTML = links.replaceAll("nav-link", "footer-link");
+  $("#navLinks").innerHTML = links + readonlyBadge;
+  $("#footerLinks").innerHTML = tripData.sections.map((section) => `
+    <button class="footer-link" type="button" data-section="${section.id}">
+      ${section.label}
+    </button>
+  `).join("");
 
   $("#sectionTabs").innerHTML = tripData.sections.map((section) => `
     <button class="tab-button ${section.id === activeSection ? "is-active" : ""}" type="button" data-section="${section.id}">
@@ -324,34 +360,27 @@ function renderPlaces() {
 
 function bindEvents() {
   document.addEventListener("click", (event) => {
+    // 섹션 탭 클릭: 해당 섹션만 표시 (IntersectionObserver 불필요)
     const sectionButton = event.target.closest("[data-section]");
     if (sectionButton) {
-      activeSection = sectionButton.dataset.section;
-      renderShell();
+      event.preventDefault();
+      showSection(sectionButton.dataset.section);
       return;
     }
 
+    // 추천 장소 카테고리 탭 클릭
     const placeButton = event.target.closest("[data-place]");
     if (placeButton) {
       activePlace = placeButton.dataset.place;
       renderPlaces();
     }
   });
-
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (!visible || visible.target.id === activeSection) return;
-    activeSection = visible.target.id;
-    renderShell();
-  }, { rootMargin: "-42% 0px -45% 0px", threshold: [0.15, 0.35, 0.55] });
-
-  tripData.sections.forEach((section) => observer.observe(document.getElementById(section.id)));
 }
 
+// ─── 초기화 ──────────────────────────────────────────────────────────────────
 renderShell();
 renderFlights();
 renderRental();
 renderPlaces();
+showSection(activeSection); // 초기 섹션 설정 (항공권만 표시)
 bindEvents();
