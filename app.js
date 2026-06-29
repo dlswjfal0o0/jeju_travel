@@ -388,8 +388,8 @@ function renderRental() {
         <div class="info-block">
           <div class="shuttle-box">
             <p class="block-title">셔틀 탑승 장소</p>
-            <h3>${escapeHtml(car.shuttlePlace)}</h3>
-            <p>${escapeHtml(car.shuttleMemo)}</p>
+            <h3>${escapeHtml(car.shuttlePlace).replace(/\n/g, '<br>')}</h3>
+            <p>${escapeHtml(car.shuttleMemo).replace(/\n/g, '<br>')}</p>
           </div>
           ${car.price ? `
           <div class="price-box">
