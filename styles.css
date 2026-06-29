@@ -509,7 +509,116 @@ p {
 
 .place-tabs {
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+/* ── 지도 ──────────────────────────────────────────────────────────────────── */
+.place-map {
+  height: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+/* 커스텀 마커 핀 */
+.map-pin {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+/* 팝업 */
+.map-popup strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.map-popup .popup-branch {
+  display: block;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.map-popup p {
+  margin: 4px 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+/* ── 지점 목록 ───────────────────────────────────────────────────────────────*/
+.branch-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--muted);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  transition: background 150ms ease;
+}
+
+.branch-toggle:hover,
+.branch-toggle.is-open {
+  background: var(--secondary);
+}
+
+.branch-arrow {
+  font-size: 0.7rem;
+  transition: transform 150ms ease;
+}
+
+.branch-toggle.is-open .branch-arrow {
+  transform: rotate(180deg);
+}
+
+.branch-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.branch-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: 10px;
+  background: var(--muted);
+  padding: 9px 12px;
+}
+
+.branch-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.branch-addr {
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+}
+
+.place-addr-single {
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
 }
 
 .place-tab {
@@ -599,17 +708,16 @@ p {
 }
 
 .place-meta {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   border-top: 1px solid var(--border);
   color: var(--muted-foreground);
   font-size: 0.82rem;
-  padding-top: 16px;
+  padding-top: 14px;
 }
 
 .place-meta strong {
-  grid-column: 1 / -1;
   color: var(--foreground);
   font-size: 0.95rem;
 }
@@ -760,8 +868,7 @@ p {
     width: 100%;
   }
 
-  .detail-grid,
-  .place-meta {
+  .detail-grid {
     grid-template-columns: 1fr;
   }
 

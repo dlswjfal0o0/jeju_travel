@@ -58,8 +58,14 @@ const tripData = {
         address: "제주시 구좌읍 동복로 83 1층",
         hours: "11:30 - 21:00 (20:00 라스트오더)",
         rating: "4.4",
+        lat: 33.5265, lng: 126.9032,
         image: "https://image.mom-mom.net/eyJrZXkiOiJwbGFjZXMvNjg2ZjI3NWMzZTNkZTY0YjdlOWU4NWJlLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzQyLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=",
         desc: "인기 메뉴인 우대갈비는 두퉁한 갈빗대에 부드러운 고기와 풍부한 육즙이 특징이며, 짚불 향이 은은하게 배어 있어 풍미가 뛰어납니다. 직원분이 직접 고기를 구워주셔서 편리하며, 트러플 계란찜과 제주 특산물을 활용한 게우솥밥도 인기 메뉴입니다.",
+        // branches 예시: 여러 지점이 있을 경우 아래처럼 추가하세요
+        // branches: [
+        //   { name: "제주점", address: "제주시 구좌읍 동복로 83 1층", lat: 33.5265, lng: 126.9032 },
+        //   { name: "한남점", address: "서울시 용산구 ...", lat: 37.5383, lng: 126.9945 },
+        // ]
       },
       {
         name: "우동카덴",
@@ -67,26 +73,37 @@ const tripData = {
         address: "제주시 조천읍 교래3길 23",
         hours: "10:00 - 18:00 (화•수 정기휴무 / 17:00 라스트오더)",
         rating: "3.9",
+        lat: 33.4252, lng: 126.7265,
         image: "https://d12zq4w4guyljn.cloudfront.net/750_750_20260506091525_photo1_d8d8dcf15d07.webp",
         desc: "쫄깃한 생면과 깊은 육수가 조화로운 우동을 제공하는 식당으로, 흑돼지우동•카레우동•명란크림우동 등 다양한 메뉴가 준비되어 있습니다.",
       },
       {
-        name: "블루크랩 함덕점",
+        name: "블루크랩",
         category: "크랩",
         address: "제주시 조천읍 함덕로 40 3층 301호",
         hours: "12:00 - 21:30 (화 정기휴무 / 15:00 - 16:30 브레이크타임 / 20:15 라스트오더)",
         rating: "4.4",
+        lat: 33.5422, lng: 126.6697,
         image: "https://mblogthumb-phinf.pstatic.net/MjAyNjAxMDRfMTI5/MDAxNzY3NTMwMzc3ODE3.1kcCtCkLxS8q-qyvl2iu9K0jn6pT8BV4iI_dA3dH7mkg.T6kT4HGe7Qf6EATjeQtWUdRIS0syYQmJY-VEG8qwnNEg.JPEG/SE-692887e3-dbca-40cd-bfd4-36137266deb4.jpg?type=w800",
         desc: "신선한 해산물을 활용한 보일링 크랩 요리가 특징입니다.",
+        branches: [
+          { name: "함덕점", address: "제주시 조천읍 함덕로 40 3층 301호", lat: 33.5422, lng: 126.6697 },
+          { name: "제주시청점", address: "제주시 이도2동 533-1 2층", lat: 33.4993, lng: 126.5314 },
+        ]
       },
       {
-        name: "청초수물회 제주점",
+        name: "청초수물회",
         category: "물회",
         address: "제주시 애월읍 일주서로 6113",
         hours: "10:30 - 20:30 (19:50 라스트오더)",
         rating: "4.6",
+        lat: 33.4565, lng: 126.3178,
         image: "https://ugc-images.catchtable.co.kr/shop/manager/images/72b5a269cdeb4c59b396e0db739f4695?resizeType=details500",
         desc: "고급스럽고 정갈하게 내어지는 물회가 대표적이며, 고소한 맛의 전복죽도 인기가 많습니다.",
+        branches: [
+          { name: "애월점", address: "제주시 애월읍 일주서로 6113", lat: 33.4565, lng: 126.3178 },
+          { name: "연동점", address: "제주시 연동 256-15", lat: 33.4938, lng: 126.5021 },
+        ]
       }
     ],
     "카페": [
@@ -96,6 +113,7 @@ const tripData = {
         address: "제주시 애월읍 애월북서길 52 1~2층",
         hours: "09:00 - 21:00 (20:20 라스트오더)",
         rating: "4.8",
+        lat: 33.4697, lng: 126.3155,
         image: "https://blog.kakaocdn.net/dna/btnbHs/btsn0DAIoZB/AAAAAAAAAAAAAAAAAAAAAIMQP92KJDaP7w8ZbBhw6MM6-uVpB2iaMoIEf82MCBYN/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1782831599&allow_ip=&allow_referer=&signature=VE3Fl9H0We6dERzRegUuV5ZmDnI%3D",
         desc: "흑임자라떼, 아인쑥패너, 넛츠크림라떼 등 시그니처 음료와 함께 초당옥수수 데니쉬, 치즈수플레 등 다양한 베이커리를 즐길 수 있습니다.",
       },
@@ -105,6 +123,7 @@ const tripData = {
         address: "제주시 구좌읍 동복로 85 지하1층",
         hours: "09:00 - 19:00 (18:30 라스트오더)",
         rating: "3.8",
+        lat: 33.5268, lng: 126.9035,
         image: "https://api.cdn.visitjeju.net/photomng/imgpath/202510/24/d19a817a-3eaf-4eaf-9850-7216cf5e8398.webp",
         desc: "꽃을 모티브로 한 음료와 디저트가 특징입니다.",
       },
@@ -114,6 +133,7 @@ const tripData = {
         address: "제주시 조천읍 조함해안로 519-10",
         hours: "06:00 - 24:00",
         rating: "4.1",
+        lat: 33.5548, lng: 126.6810,
         image: "https://mblogthumb-phinf.pstatic.net/MjAyMTAzMjZfODgg/MDAxNjE2NzI2OTI3MDYy.sicbaZbeyLMte8EvA-iTYe-FWcNpvpWg8bZmoNf1ZWIg.KlujjGRCwFgSE2p-aufJuU1zdFgGWmiRRfwS_ZUEWxYg.JPEG.28ssan/SE-489edfa3-aa78-4334-8c17-4eadd5bd5790.jpg?type=w800",
         desc: "고메버터 소금빵, 우도 땅콩빵, 라봉슈 등 다양한 베이커리와 말차라떼, 청귤피치에이드 등 음료 메뉴가 인기입니다.",
       }
@@ -122,10 +142,11 @@ const tripData = {
       {
         name: "성산 일출봉",
         category: "세계자연유산",
-        address: "서귀포시 성산읍",
+        address: "서귀포시 성산읍 일출로 284-12",
         hours: "07:00 - 20:00",
         price: "입장료 5,000원",
         rating: "4.9",
+        lat: 33.4583, lng: 126.9425,
         image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80",
         desc: "분화구와 동쪽 바다 전망을 함께 볼 수 있는 제주 대표 명소입니다.",
         memo: "아침 방문 추천"
@@ -133,10 +154,11 @@ const tripData = {
       {
         name: "천지연 폭포",
         category: "자연경관",
-        address: "서귀포시 천지동",
+        address: "서귀포시 천지동 667-7",
         hours: "09:00 - 22:00",
         price: "입장료 2,000원",
         rating: "4.7",
+        lat: 33.2480, lng: 126.5562,
         image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=900&q=80",
         desc: "야간 조명 산책까지 고려하기 좋은 폭포 코스입니다.",
         memo: "첫날 저녁 산책"
@@ -182,8 +204,13 @@ function showSection(sectionId) {
   // 탭 버튼·nav 링크의 is-active 상태를 renderShell()로 다시 그림
   renderShell();
 
-  // 탭바가 보이는 위치로 스크롤 (상단 고정 nav + 탭바 높이 고려)
+  // 탭바가 보이는 위치로 스크롤
   window.scrollTo({ top: 0, behavior: "instant" });
+
+  // 추천 장소 탭으로 전환 시 지도 초기화 (Leaflet은 DOM이 visible해야 렌더링 가능)
+  if (sectionId === "places") {
+    requestAnimationFrame(() => initMap());
+  }
 }
 
 function renderShell() {
@@ -319,34 +346,139 @@ function renderRental() {
   `).join("");
 }
 
-function renderPlaces() {
-  $("#placeTabs").innerHTML = Object.keys(tripData.places).map((name) => `
-    <button class="place-tab ${name === activePlace ? "is-active" : ""}" type="button" data-place="${escapeHtml(name)}">
-      ${name === "식사" ? "🍽" : name === "카페" ? "☕" : "📷"} ${escapeHtml(name)}
-    </button>
-  `).join("");
+// ─── 지도 ────────────────────────────────────────────────────────────────────
+// Leaflet + OpenStreetMap. API 키 불필요.
+// 카테고리별 이모지 마커, branches가 있는 경우 각 지점마다 마커를 추가합니다.
 
-  $("#placeList").innerHTML = tripData.places[activePlace].map((place) => `
-    <article class="place-card">
-      <div class="place-image-wrap">
-        <img src="${escapeHtml(place.image)}" alt="${escapeHtml(place.name)}" loading="lazy" />
-        <div class="place-badges">
-          <span>${escapeHtml(place.category)}</span>
-          <span>★ ${escapeHtml(place.rating)}</span>
+const CATEGORY_CONFIG = {
+  "식사": { emoji: "🍽", color: "#d96b2f" },
+  "카페": { emoji: "☕", color: "#7b4f2e" },
+  "명소": { emoji: "📷", color: "#1d4a3c" },
+};
+
+let _map = null;
+let _markers = [];
+
+function makeMarkerIcon(emoji, color) {
+  return L.divIcon({
+    html: `<div class="map-pin" style="background:${color}">${emoji}</div>`,
+    className: "",
+    iconSize: [38, 38],
+    iconAnchor: [19, 19],
+    popupAnchor: [0, -22],
+  });
+}
+
+function initMap() {
+  // places 섹션이 보일 때 한 번만 초기화
+  if (_map) {
+    // 이미 초기화됐으면 invalidateSize로 레이아웃 재계산만
+    _map.invalidateSize();
+    return;
+  }
+
+  _map = L.map("placeMap", {
+    center: [33.4, 126.55],
+    zoom: 10,
+    zoomControl: true,
+  });
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+  }).addTo(_map);
+
+  addAllMarkers();
+}
+
+function addAllMarkers() {
+  // 기존 마커 제거
+  _markers.forEach((m) => _map.removeLayer(m));
+  _markers = [];
+
+  Object.entries(tripData.places).forEach(([category, places]) => {
+    const { emoji, color } = CATEGORY_CONFIG[category] || { emoji: "📍", color: "#666" };
+    const icon = makeMarkerIcon(emoji, color);
+
+    places.forEach((place) => {
+      const points = place.branches?.length
+        ? place.branches  // 여러 지점: branches 각각 마커
+        : (place.lat ? [{ name: null, address: place.address, lat: place.lat, lng: place.lng }] : []);
+
+      points.forEach((pt) => {
+        const titleLine = pt.name
+          ? `<strong>${escapeHtml(place.name)}</strong><span class="popup-branch">${escapeHtml(pt.name)}</span>`
+          : `<strong>${escapeHtml(place.name)}</strong>`;
+
+        const marker = L.marker([pt.lat, pt.lng], { icon })
+          .bindPopup(
+            `<div class="map-popup">${titleLine}<p>${escapeHtml(pt.address)}</p></div>`,
+            { maxWidth: 220 }
+          )
+          .addTo(_map);
+        _markers.push(marker);
+      });
+    });
+  });
+
+  // 마커 전체가 보이도록 범위 조정
+  if (_markers.length > 0) {
+    const group = L.featureGroup(_markers);
+    _map.fitBounds(group.getBounds().pad(0.12));
+  }
+}
+
+// ─── 추천 장소 렌더링 ────────────────────────────────────────────────────────
+function renderPlaces() {
+  $("#placeTabs").innerHTML = Object.keys(tripData.places).map((name) => {
+    const { emoji } = CATEGORY_CONFIG[name] || { emoji: "📍" };
+    return `
+      <button class="place-tab ${name === activePlace ? "is-active" : ""}" type="button" data-place="${escapeHtml(name)}">
+        ${emoji} ${escapeHtml(name)}
+      </button>
+    `;
+  }).join("");
+
+  $("#placeList").innerHTML = tripData.places[activePlace].map((place, idx) => {
+    // 여러 지점이 있으면 지점 목록 토글 UI 표시
+    const branchesHtml = place.branches?.length
+      ? `
+        <button class="branch-toggle" type="button" data-branch-target="bl-${idx}">
+          지점 ${place.branches.length}곳 보기 <span class="branch-arrow">▾</span>
+        </button>
+        <ul class="branch-list" id="bl-${idx}" hidden>
+          ${place.branches.map((b) => `
+            <li>
+              <span class="branch-name">${escapeHtml(b.name)}</span>
+              <span class="branch-addr">📍 ${escapeHtml(b.address)}</span>
+            </li>
+          `).join("")}
+        </ul>
+      `
+      : `<span class="place-addr-single">📍 ${escapeHtml(place.address)}</span>`;
+
+    return `
+      <article class="place-card">
+        <div class="place-image-wrap">
+          <img src="${escapeHtml(place.image)}" alt="${escapeHtml(place.name)}" loading="lazy" />
+          <div class="place-badges">
+            <span>${escapeHtml(place.category)}</span>
+            <span>★ ${escapeHtml(place.rating)}</span>
+          </div>
         </div>
-      </div>
-      <div class="place-body">
-        <h3>${escapeHtml(place.name)}</h3>
-        <p>${escapeHtml(place.desc)}</p>
-        ${place.memo ? `<div class="memo-box">📌 ${escapeHtml(place.memo)}</div>` : ""}
-        <div class="place-meta">
-          <span>📍 ${escapeHtml(place.address)}</span>
-          <span>⏱ ${escapeHtml(place.hours)}</span>
-          <strong>${escapeHtml(place.price)}</strong>
+        <div class="place-body">
+          <h3>${escapeHtml(place.name)}</h3>
+          <p>${escapeHtml(place.desc)}</p>
+          ${place.memo ? `<div class="memo-box">📌 ${escapeHtml(place.memo)}</div>` : ""}
+          <div class="place-meta">
+            ${branchesHtml}
+            <span>⏱ ${escapeHtml(place.hours)}</span>
+            ${place.price ? `<strong>${escapeHtml(place.price)}</strong>` : ""}
+          </div>
         </div>
-      </div>
-    </article>
-  `).join("");
+      </article>
+    `;
+  }).join("");
 }
 
 function bindEvents() {
@@ -364,6 +496,20 @@ function bindEvents() {
     if (placeButton) {
       activePlace = placeButton.dataset.place;
       renderPlaces();
+      return;
+    }
+
+    // 지점 목록 토글
+    const branchToggle = event.target.closest("[data-branch-target]");
+    if (branchToggle) {
+      const targetId = branchToggle.dataset.branchTarget;
+      const list = document.getElementById(targetId);
+      if (!list) return;
+      const isOpen = !list.hidden;
+      list.hidden = isOpen;
+      const arrow = branchToggle.querySelector(".branch-arrow");
+      if (arrow) arrow.textContent = isOpen ? "▾" : "▴";
+      branchToggle.classList.toggle("is-open", !isOpen);
     }
   });
 }
