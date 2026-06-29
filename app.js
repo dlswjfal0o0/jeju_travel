@@ -308,7 +308,7 @@ function renderShell() {
       ${section.label}
     </button>
   `).join("");
-  $("#navLinks").innerHTML = links + readonlyBadge;
+  $("#navLinks").innerHTML = links;
   $("#footerLinks").innerHTML = tripData.sections.map((section) => `
     <button class="footer-link" type="button" data-section="${section.id}">
       ${section.label}
