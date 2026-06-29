@@ -127,7 +127,7 @@ const tripData = {
         lat: 33.5022, lng: 126.5131,
         hours: "13:00 - 23:00 (화 정기휴무 / 17:00 - 18:00 브레이크타임 / 22:00 라스트오더)",
         rating: "4.6",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFDc9JVlpJv5Px8VvswY-i8BZHzn7ZJbR1eQ&s",
+        image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250212_24%2F1739335397724cWPFt_JPEG%2FIMG_1443.jpeg",
         desc: "송아지 스테이크와 딱새우 매운 크림 파스타가 인기 메뉴입니다.",
       },
       {
@@ -218,22 +218,19 @@ const tripData = {
         category: "미디어아트",
         address: "서귀포시 월드컵로 33 제주월드컵경기장",
         lat: 33.2517, lng: 126.5181,
-        hours: "07:00 - 20:00",
-        price: "입장료 5,000원",
-        rating: "4.9",
-        image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80",
-        desc: "분화구와 동쪽 바다 전망을 함께 볼 수 있는 제주 대표 명소입니다.",
-        memo: "아침 방문 추천"
+        hours: "10:00 - 20:00 (19:00 입장마감)",
+        rating: "3.8",
+        image: "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA0MDRfMTI1%2FMDAxNzQzNzA5MTU5MDAy.XklDeEGXhsComEatCd1ovT39dutD8-e33R6lW8nYaqsg.YbNMX7lOgel4QrMj8VuKxQm-yutEprwJW6tdGaCmMC8g.JPEG%2FTHE_OCEAN17_%25282%2529.jpg&type=sc960_832",
+        desc: "슬라이드, 감귤 욕조 스파, 해수 사우나, 미디어아트가 있는 제주 대표 명소입니다.",
       },
       {
         name: "천지연 폭포",
         category: "자연경관",
         address: "서귀포시 천지동 667-7",
         lat: 33.2463, lng: 126.5546,
-        hours: "09:00 - 22:00",
         price: "입장료 2,000원",
-        rating: "4.7",
-        image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=900&q=80",
+        rating: "4.49",
+        image: "https://api.cdn.visitjeju.net/photomng/imgpath/202409/24/15f30667-21ed-4722-aaa3-d4a64e02a9a2.webp",
         desc: "야간 조명 산책까지 고려하기 좋은 폭포 코스입니다.",
         memo: "첫날 저녁 산책"
       }
