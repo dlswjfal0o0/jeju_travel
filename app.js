@@ -234,15 +234,9 @@ function detail(label, value) {
 }
 
 function renderFlights() {
-  $("#flightMemo").textContent = tripData.flightMemo;
   $("#flightList").innerHTML = tripData.flights.map((flight) => {
     const [from, to] = flight.route.split(" → ");
     const isReturn = flight.type.includes("귀국");
-    const tickets = flight.tickets.map((ticket) => `
-      <a class="ticket-link" href="${escapeHtml(ticket.href)}" target="_blank" rel="noreferrer">
-        ${escapeHtml(ticket.label)}
-      </a>
-    `).join("");
 
     return `
       <article class="flight-card ${isReturn ? "return" : ""}">
@@ -266,10 +260,6 @@ function renderFlights() {
                 <strong>${escapeHtml(flight.arrive)}</strong>
                 <span>${escapeHtml(to)}</span>
               </div>
-            </div>
-            <div class="ticket-row">
-              <span class="soft-chip">E티켓</span>
-              ${tickets || '<span class="ticket-link is-disabled">첨부 예정</span>'}
             </div>
           </div>
           <div class="detail-grid">
