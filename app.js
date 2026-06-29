@@ -571,7 +571,7 @@ function renderPlaces() {
           ${place.memo ? `<div class="memo-box">📌 ${escapeHtml(place.memo)}</div>` : ""}
           <div class="place-meta">
             ${branchesHtml}
-            <span>⏱ ${escapeHtml(place.hours)}</span>
+            ${place.hours ? `<span>⏱ ${escapeHtml(place.hours)}</span>` : ""}
             ${place.price ? `<strong>${escapeHtml(place.price)}</strong>` : ""}
           </div>
         </div>
