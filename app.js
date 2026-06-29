@@ -167,22 +167,21 @@ function escapeHtml(value = "") {
 
 // ─── 섹션 전환 ───────────────────────────────────────────────────────────────
 // 탭 클릭 시 해당 섹션만 표시하고 나머지를 숨깁니다.
-// IntersectionObserver 없이 동작하므로 스크롤 중 다른 탭이 활성화되는 오류가 없습니다.
+// renderShell()을 재호출해 nav/tab is-active 상태를 항상 동기화합니다.
 function showSection(sectionId) {
   activeSection = sectionId;
+
+  // 활성 섹션만 표시 (CSS [hidden] { display: none !important } 와 함께 동작)
   tripData.sections.forEach(({ id }) => {
     const el = document.getElementById(id);
     if (el) el.hidden = (id !== sectionId);
   });
-  // 섹션 교체 시 페이지 상단(탭바)으로 이동
-  document.getElementById("sectionTabs")?.scrollIntoView({ block: "nearest" });
-  updateTabState();
-}
 
-function updateTabState() {
-  document.querySelectorAll("[data-section]").forEach((el) => {
-    el.classList.toggle("is-active", el.dataset.section === activeSection);
-  });
+  // 탭 버튼·nav 링크의 is-active 상태를 renderShell()로 다시 그림
+  renderShell();
+
+  // 탭바가 보이는 위치로 스크롤 (상단 고정 nav + 탭바 높이 고려)
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 
 function renderShell() {
@@ -378,9 +377,10 @@ function bindEvents() {
 }
 
 // ─── 초기화 ──────────────────────────────────────────────────────────────────
-renderShell();
+// renderFlights/renderRental/renderPlaces 먼저 실행 후 showSection으로 초기 탭 설정.
+// showSection 내부에서 renderShell()을 호출하므로 별도 호출 불필요.
 renderFlights();
 renderRental();
 renderPlaces();
-showSection(activeSection); // 초기 섹션 설정 (항공권만 표시)
+showSection(activeSection); // 항공권 탭 기본 표시 + renderShell() 포함
 bindEvents();

@@ -21,6 +21,11 @@
   box-sizing: border-box;
 }
 
+/* hidden 속성이 다른 CSS 규칙에 의해 override되지 않도록 명시 */
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
