@@ -53,7 +53,7 @@ const tripData = {
   places: {
     "식사": [
       {
-        name: "몽탄 제주점",
+        name: "몽탄",
         category: "고기",
         address: "제주시 구좌읍 동복로 83 1층",
         hours: "11:30 - 21:00 (20:00 라스트오더)",
@@ -65,6 +65,10 @@ const tripData = {
         //   { name: "제주점", address: "제주시 구좌읍 동복로 83 1층", lat: 33.5265, lng: 126.9032 },
         //   { name: "한남점", address: "서울시 용산구 ...", lat: 37.5383, lng: 126.9945 },
         // ]
+        branches: [
+          { name: "제주점", address: "제주시 구좌읍 동복로 83 1층" },
+          { name: "애월점", address: "제주시 애월읍 애월북서길 56-4" },
+        ]
       },
       {
         name: "우동카덴",
@@ -76,30 +80,76 @@ const tripData = {
         desc: "쫄깃한 생면과 깊은 육수가 조화로운 우동을 제공하는 식당으로, 흑돼지우동•카레우동•명란크림우동 등 다양한 메뉴가 준비되어 있습니다.",
       },
       {
-        name: "블루크랩",
+        name: "블루크랩 함덕점",
         category: "크랩",
         address: "제주시 조천읍 함덕로 40 3층 301호",
         hours: "12:00 - 21:30 (화 정기휴무 / 15:00 - 16:30 브레이크타임 / 20:15 라스트오더)",
         rating: "4.4",
         image: "https://mblogthumb-phinf.pstatic.net/MjAyNjAxMDRfMTI5/MDAxNzY3NTMwMzc3ODE3.1kcCtCkLxS8q-qyvl2iu9K0jn6pT8BV4iI_dA3dH7mkg.T6kT4HGe7Qf6EATjeQtWUdRIS0syYQmJY-VEG8qwnNEg.JPEG/SE-692887e3-dbca-40cd-bfd4-36137266deb4.jpg?type=w800",
         desc: "신선한 해산물을 활용한 보일링 크랩 요리가 특징입니다.",
-        branches: [
-          { name: "함덕점", address: "제주시 조천읍 함덕로 40 3층 301호" },
-          { name: "제주시청점", address: "제주시 이도2동 533-1 2층" },
-        ]
       },
       {
-        name: "청초수물회",
+        name: "청초수물회 제주점",
         category: "물회",
         address: "제주시 애월읍 일주서로 6113",
         hours: "10:30 - 20:30 (19:50 라스트오더)",
         rating: "4.6",
         image: "https://ugc-images.catchtable.co.kr/shop/manager/images/72b5a269cdeb4c59b396e0db739f4695?resizeType=details500",
         desc: "고급스럽고 정갈하게 내어지는 물회가 대표적이며, 고소한 맛의 전복죽도 인기가 많습니다.",
-        branches: [
-          { name: "애월점", address: "제주시 애월읍 일주서로 6113" },
-          { name: "연동점", address: "제주시 연동 256-15" },
-        ]
+      },
+      {
+        name: "고찌가게",
+        category: "동네맛집",
+        address: "제주시 가령로4길 27",
+        hours: "11:00 - 15:00 (14:55 라스트오더)",
+        rating: "3.5",
+        image: "https://d12zq4w4guyljn.cloudfront.net/750_750_20250903055800394_photo_7467740bc044.webp",
+        desc: "합리적인 가격에 수제 함박 스테이크와 카레를 즐길 수 있습니다.",
+      },
+      {
+        name: "함쉐프키친짬뽕 서귀포 본점",
+        category: "짬뽕",
+        address: "서귀포시 이어도로 217-4 함쉐프키친",
+        hours: "11:00 - 21:00 (15:00 - 17:00 브레이크타임 / 20:00 라스트오더)",
+        rating: "4.6",
+        image: "https://ugc-images.catchtable.co.kr/shop/manager/images/7b9b1181723e4aada8d6a8948a122eed?resizeType=details500",
+        desc: "신라호텔 15년 경력의 쉐프가 운영하는 곳으로, 소고기 차돌박이와 왕갈비가 들어간 인생짬뽕이 인기 메뉴입니다.",
+      },
+      {
+        name: "소렉",
+        category: "양식",
+        address: "제주시 은남2길 41 1층",
+        hours: "13:00 - 23:00 (화 정기휴무 / 17:00 - 18:00 브레이크타임 / 22:00 라스트오더)",
+        rating: "4.6",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFDc9JVlpJv5Px8VvswY-i8BZHzn7ZJbR1eQ&s",
+        desc: "송아지 스테이크와 딱새우 매운 크림 파스타가 인기 메뉴입니다.",
+      },
+      {
+        name: "연돈",
+        category: "돈까스",
+        address: "서귀포시 색달로 10",
+        hours: "12:00 - 21:00 (19:15 라스트오더)",
+        rating: "4.2",
+        image: "https://ugc-images.catchtable.co.kr/catchtable/shopinfo/s-XvP-6X2H7zfLB3n7gydQw/m/270ef344e48345adbf99b33ef74b715e?resizeType=details500",
+        desc: "두툼한 등심까스와 부드러운 안심까스, 치즈볼카츠 등 다양한 돈까스 메뉴를 제공하며 바삭한 튀김옷과 잡내 없는 고기가 특징입니다.",
+      },
+      {
+        name: "돈해상 제주한림협재흑돼지",
+        category: "흑돼지",
+        address: "제주시 한림읍 귀덕11길 39 1층",
+        hours: "11:00 - 21:00 (14:00 - 15:00 브레이크타임 / 20:30 라스트오더)",
+        rating: "4.5",
+        image: "https://ugc-images.catchtable.co.kr/shop/manager/images/08e8a13ce72c4fe89d9512c0052e2783?resizeType=details500",
+        desc: "제주 바다를 바라보며 흑돼지를 즐길 수 있으며, 세트 메뉴에는 흑돼지 오겹살 및 목살과 함께 활전복, 새우 등이 포함되어 있습니다.",
+      },
+      {
+        name: "세이모키친",
+        category: "양식",
+        address: "서귀포시 김정문화로 41번길 3",
+        hours: "11:30 - 15:30 (월 정기휴무 / 14:30 라스트오더)",
+        rating: "4.88",
+        image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250226_197%2F17405720718162FBsl_JPEG%2FIMG_2110.jpeg",
+        desc: "서귀포에서 파스타와 피자가 맛있는 레스토랑으로, 특히 시그니처 오일파스타와 트러플 크림 뇨끼가 인기 메뉴입니다.",
       }
     ],
     "카페": [
@@ -129,13 +179,32 @@ const tripData = {
         rating: "4.1",
         image: "https://mblogthumb-phinf.pstatic.net/MjAyMTAzMjZfODgg/MDAxNjE2NzI2OTI3MDYy.sicbaZbeyLMte8EvA-iTYe-FWcNpvpWg8bZmoNf1ZWIg.KlujjGRCwFgSE2p-aufJuU1zdFgGWmiRRfwS_ZUEWxYg.JPEG.28ssan/SE-489edfa3-aa78-4334-8c17-4eadd5bd5790.jpg?type=w800",
         desc: "고메버터 소금빵, 우도 땅콩빵, 라봉슈 등 다양한 베이커리와 말차라떼, 청귤피치에이드 등 음료 메뉴가 인기입니다.",
+        branches: [
+          { name: "함덕점", address: "제주시 조천읍 조함해안로 519-10" },
+          { name: "김녕점", address: "제주시 구좌읍 해맞이해안로 140" },
+          { name: "제주도립미술관점", address: "제주시 1100로 2894-78" },
+          { name: "로스터스", address: "제주시 연삼로 316" },
+        ]
+      },
+      {
+        name: "망고레이",
+        category: "망고",
+        address: "제주시 애월읍 일주서로 7021 1층",
+        hours: "10:00 - 19:30",
+        rating: "4.3",
+        image: "https://mblogthumb-phinf.pstatic.net/MjAyNDA0MjBfMjE0/MDAxNzEzNjE5OTAyODgw.lqCZhyYfvCCkaTmX04erNGX0UcjcR7ArvX4wsANRC58g.tjrd3VhJo0hOABS7hnO9gUFYUFo5WBG5DSnSkP5kU94g.JPEG/SE-e3871769-149c-47b1-9582-4d45c417df86.jpg?type=w800",
+        desc: "대한민국 최초의 필리핀 디저트 카페이자, 필리핀 카라바오생망고를 직접 공수하여 필리핀 현지의 맛을 느낄 수 있습니다.",
+        branches: [
+          { name: "애월직영점", address: "제주시 조천읍 조함해안로 519-10" },
+          { name: "함덕본점", address: "제주시 구좌읍 해맞이해안로 140" },
+        ]
       }
     ],
     "명소": [
       {
-        name: "성산 일출봉",
-        category: "세계자연유산",
-        address: "서귀포시 성산읍 일출로 284-12",
+        name: "워터월드 제주",
+        category: "미디어아트",
+        address: "서귀포시 월드컵로 33 제주월드컵경기장",
         hours: "07:00 - 20:00",
         price: "입장료 5,000원",
         rating: "4.9",
