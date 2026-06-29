@@ -303,11 +303,6 @@ function renderShell() {
     `📍 ${tripData.destination}`
   ].map((item) => `<span class="meta-pill">${escapeHtml(item)}</span>`).join("");
 
-  // 읽기 전용 배지: 편집 모드가 아닐 때 nav에 표시
-  const readonlyBadge = IS_EDIT_MODE
-    ? ""
-    : `<span class="readonly-badge">읽기 전용</span>`;
-
   const links = tripData.sections.map((section) => `
     <button class="nav-link ${section.id === activeSection ? "is-active" : ""}" type="button" data-section="${section.id}">
       ${section.label}
@@ -401,8 +396,6 @@ function renderRental() {
           </div>
           ${car.price ? `
           <div class="price-box">
-            <p>총 요금</p>
-            <strong>${escapeHtml(car.price)}</strong>
             <p>${escapeHtml(car.include)}</p>
           </div>` : ""}
         </div>
