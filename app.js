@@ -169,14 +169,15 @@ const tripData = {
         image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20251028_48%2F1761645852628uxbpA_JPEG%2F1761558351881.jpg",
         desc: "다양한 부위의 고기를 한 번에 맛볼 수 있는 도대표한판과 제주갈비한판이 인기 메뉴이며, 직원들이 직접 고기를 구워주어서 편리합니다.",
         branches: [
-          { name: "본점", address: "제주시 한라대학로 85 1층" },
-          { name: "공항점", address: "제주시 신대로7길 7 1층" },
+          { name: "본점", address: "제주시 한라대학로 85 1층", lat: 33.4706, lng: 126.4807 },
+          { name: "공항점", address: "제주시 신대로7길 7 1층", lat: 33.4998, lng: 126.5043 },
         ]
       },
       {
         name: "황금어장",
         category: "해산물",
         address: "제주시 사장길 14",
+        lat: 33.5127, lng: 126.5258,
         hours: "09:00 - 21:00 (20:00 라스트오더)",
         rating: "4.29",
         image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20251107_97%2F1762495662781IqA0a_JPEG%2F%25C8%25B2%25B1%25DD%25BE%25EE%25C0%25E5_00_%25B4%25EB%25C7%25A5%25BB%25E7%25C1%25F8_02_25%252C_11%252C_06.jpg",
@@ -186,6 +187,7 @@ const tripData = {
         name: "산계원",
         category: "오리고기",
         address: "서귀포시 안덕면 형제해안로 80",
+        lat: 33.2338, lng: 126.3135,
         hours: "11:00 - 22:00 (20:15 라스트오더)",
         rating: "4.4",
         image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTA5MDVfMjc4%2FMDAxNzU3MDQ0ODAyNzY0.-n7O6UkZeIfBVRpIR84g7iQVSKECNDcuqPNlFY8CReYg.lIjqqeB4UhAC8YdCxifUt4wLRse_pLjYrv27G71-ySsg.JPEG%2F3CC03CE6-D676-4D9D-B86D-4A7127C4A53B.jpeg",
@@ -195,6 +197,7 @@ const tripData = {
         name: "은식당 제주본점",
         category: "돈까스",
         address: "서귀포시 안덕면 사계북로41번길 125 1층",
+        lat: 33.2462, lng: 126.3138,
         hours: "11:00 - 20:00 (월 정기휴무 / 15:00 - 17:00 브레이크타임 / 19:10 라스트오더)",
         rating: "4.4",
         image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20241223_34%2F1734962477676LCUaG_JPEG%2FCA7065D0-CFA9-464F-8DC6-970A66C3B279.jpeg",
